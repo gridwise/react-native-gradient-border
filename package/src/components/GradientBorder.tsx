@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ViewStyle} from 'react-native';
 import MaskedView from '@react-native-masked-view/masked-view';
 import LinearGradient, {
   LinearGradientProps,
@@ -17,51 +17,17 @@ export type RequiredGradientBorderProps = {
   gradientProps: GradientProps;
 };
 
-type BorderProps = {
-  /**
-   * Width of border.
-   */
-  borderWidth?: number;
-
-  /**
-   * Border applied to top of view, overrides borderWidth.
-   */
-  borderTopWidth?: number;
-  /**
-   * Border applied to left side of view, overrides borderWidth.
-   */
-  borderLeftWidth?: number;
-
-  /**
-   * Border applied to bottom side of view, overrides borderWidth.
-   */
-  borderBottomWidth?: number;
-
-  /**
-   * Border appled to right side of view, overrides borderWidth.
-   */
-  borderRightWidth?: number;
-  /**
-   * Border radius applied to each corner.
-   */
-  borderRadius?: number;
-  /**
-   * Border radius applied to top right corner, Overrides borderRadius.
-   */
-  borderTopRightRadius?: number;
-  /**
-   * Border radius applied to top left corner. Overrides borderRadius
-   */
-  borderTopLeftRadius?: number;
-  /**
-   * Border radius applied to bottom right corner. Overrides borderRadius
-   */
-  borderBottomRightRadius?: number;
-  /**
-   * Border radius applied to bottom left corner. Overrides borderRadius
-   */
-  borderBottomLeftRadius?: number;
-};
+type BorderProps = Pick<ViewStyle,
+  | 'borderWidth'
+  | 'borderTopWidth'
+  | 'borderLeftWidth'
+  | 'borderBottomWidth'
+  | 'borderRightWidth'
+  | 'borderRadius'
+  | 'borderTopRightRadius'
+  | 'borderTopLeftRadius'
+  | 'borderBottomRightRadius'
+  | 'borderBottomLeftRadius'>
 
 /**
  * A component that applies a gradient border to the parent.
